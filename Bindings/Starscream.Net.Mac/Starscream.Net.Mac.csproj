@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>4.0.6.8</Version>
+    <authors>s.bokatuk</authors>
+    <owners>s.bokatuk</owners>
+    <title>Xamarin bindings to the native Starscream Sockets Mac SDK.</title>
+    <projectUrl>https://github.com/sbokatuk/Starscream.Net</projectUrl>
+    <description>MAUI .Net Mac Xamarin bindings for Starscream Sockets SDK. Alows to use The Starscream Sockets SDK in your app.</description>
+    <summary>.Net Xamarin Starscream Sockets Mac SDK, see https://github.com/daltoniam/Starscream</summary>
+    <tags>Xamarin Starscream .Net Sockets Mac SDK Xamarin Xamarin.Mac MAUI MAUI.Mac .Net Binding</tags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageId>Starscream.Net.Mac</PackageId>
+    <AssemblyName>Starscream.Net.Mac</AssemblyName>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <ReleaseVersion>4.2.6.1</ReleaseVersion>
+    <TargetFramework>net8.0-maccatalyst</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <IsBindingProject>true</IsBindingProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Starscream.Net.Mac.targets">
+      <PackagePath>build/Starscream.Net.Mac.targets</PackagePath>
+    </Content>
+  </ItemGroup>
+</Project>
