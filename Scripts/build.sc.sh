@@ -45,48 +45,36 @@ rm Starscream.Net.Mac.$MACVERSION.7.nupkg
 rm Starscream.Net.Mac.$MACVERSION.8.nupkg
 cd ..
 echo "mac part nugets generated"
-echo "$ANDROIDVERSION" > Bindings/Starscream.Net.Android/Readme.md
-sed -E -i "" "s/<Version>([0-9]{1,}\.)+[0-9]{1,}/<Version>$ANDROIDVERSION.7/" Bindings/Starscream.Net.Android/Starscream.Net.Android.csproj
-sed -E -i "" "s/<TargetFramework>net([0-9]{1,}\.)+[0-9]{1,}-android/<TargetFramework>net7.0-android/" Bindings/Starscream.Net.Android/Starscream.Net.Android.csproj
-dotnet pack Bindings/Starscream.Net.Android/Starscream.Net.Android.csproj --output NugetPackages --force --verbosity quiet --property WarningLevel=0 /clp:ErrorsOnly
-sed -E -i "" "s/<Version>([0-9]{1,}\.)+[0-9]{1,}/<Version>$ANDROIDVERSION.8/" Bindings/Starscream.Net.Android/Starscream.Net.Android.csproj
-sed -E -i "" "s/<TargetFramework>net([0-9]{1,}\.)+[0-9]{1,}-android/<TargetFramework>net8.0-android/" Bindings/Starscream.Net.Android/Starscream.Net.Android.csproj
-dotnet pack Bindings/Starscream.Net.Android/Starscream.Net.Android.csproj --output NugetPackages --force --verbosity quiet --property WarningLevel=0 /clp:ErrorsOnly
-cd NugetPackages
-rm -rf scandroid
-unzip -n -q Starscream.Net.Android.$ANDROIDVERSION.7.nupkg -d scandroid
-unzip -n -q Starscream.Net.Android.$ANDROIDVERSION.8.nupkg -d scandroid
-rm Starscream.Net.Android.$ANDROIDVERSION.7.nupkg
-rm Starscream.Net.Android.$ANDROIDVERSION.8.nupkg
-cd ..
-echo "android part nugets generated"
 cd NugetPackages
 
-cp -R scandroid/Readme.md scandroid/Readme.txt
 cp -R scmac/Readme.md scmac/Readme.txt
 cp -R scios/Readme.md scios/Readme.txt
 cp -R sc/Readme.md sc/Readme.txt
 
-# mkdir Voice/native
-# mkdir Voice/native/lib
-# mkdir Voice/native/lib/ios
-# cp -R webrtc/lib/net8.0-android34.0/webrtc.aar webrtc/native/lib/android
-# 
-# rm webrtc/lib/net8.0-android34.0/webrtc.aar
-# rm webrtc/lib/net7.0-android33.0/webrtc.aar 
+mkdir scios/native/
+mkdir scios/native/lib
+mkdir scios/native/lib/ios
+cp -R scios/lib/net8.0-ios17.2/Starscream.Net.iOS.resources scios/native/lib/ios
 
+rm -rf scios/lib/net8.0-ios17.2/Starscream.Net.iOS.resources
+rm -rf scios/lib/net7.0-ios16.1/Starscream.Net.iOS.resources
 
-sed -E -i "" "s/<version>([0-9]{1,}\.)+[0-9]{1,}/<version>$ANDROIDVERSION.$BUILD/" Starscream.Net.Android.nuspec
+mkdir scmac/native
+mkdir scmac/native/lib
+mkdir scmac/native/lib/mac
+cp -R scmac/lib/net8.0-maccatalyst17.2/Starscream.Net.Mac.resources scmac/native/lib/mac
+
+rm -rf scmac/lib/net8.0-maccatalyst17.2/Starscream.Net.Mac.resources
+rm -rf scmac/lib/net7.0-maccatalyst16.1/Starscream.Net.Mac.resources
+
 sed -E -i "" "s/<version>([0-9]{1,}\.)+[0-9]{1,}/<version>$IOSVERSION.$BUILD/" Starscream.Net.iOS.nuspec
 sed -E -i "" "s/<version>([0-9]{1,}\.)+[0-9]{1,}/<version>$MACVERSION.$BUILD/" Starscream.Net.Mac.nuspec
 sed -E -i "" "s/<version>([0-9]{1,}\.)+[0-9]{1,}/<version>$VERSION.$BUILD/" Starscream.Net.nuspec
 
-nuget pack Starscream.Net.Android.nuspec
 nuget pack Starscream.Net.iOS.nuspec
 nuget pack Starscream.Net.Mac.nuspec
 nuget pack Starscream.Net.nuspec
 
-rm -rf scandroid
 rm -rf scios
 rm -rf scmac
 

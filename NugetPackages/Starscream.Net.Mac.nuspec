@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Starscream.Net.Mac</id>
-    <version>4.0.6.1</version>
+    <version>4.0.6.2</version>
     <title>Xamarin bindings to the native Starscream Sockets Mac SDK.</title>
     <authors>s.bokatuk</authors>
     <owners>s.bokatuk</owners>
@@ -20,6 +20,8 @@
     </dependencies>
   </metadata>
   <files>
+      <file src="scmac/build/Starscream.Net.Mac.targets" target="build" />
+      <file src="scmac/native/lib/mac/**" target="native/lib/mac" />
       <file src="sc/sdk.png" target="images/icon.png" />
       <file src="scmac/README.md" target="" />
       <file src="scmac/README.txt" target="" />

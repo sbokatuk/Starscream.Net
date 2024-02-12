@@ -29,4 +29,12 @@
       <PackagePath>build/Starscream.Net.iOS.targets</PackagePath>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="Starscream.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+      <Frameworks>Foundation</Frameworks>
+      <LinkerFlags>-ObjC -lz</LinkerFlags>
+    </NativeReference>
+  </ItemGroup>
 </Project>

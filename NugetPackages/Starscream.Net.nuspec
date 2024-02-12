@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Starscream.Net</id>
-    <version>4.0.6.1</version>
+    <version>4.0.6.2</version>
     <title>Xamarin bindings to the native Starscream Sockets SDK.</title>
     <authors>s.bokatuk</authors>
     <owners>s.bokatuk</owners>
@@ -13,8 +13,6 @@
     <projectUrl>https://github.com/sbokatuk/Starscream.Net</projectUrl>
     <description>MAUI Android iOS Mac Xamarin bindings for Starscream Sockets SDK. Alows to use The Starscream Sockets SDK in your app.</description>
     <dependencies>
-      <group targetFramework="net7.0-android33.0" />
-      <group targetFramework="net8.0-android34.0" />
       <group targetFramework="net7.0-maccatalyst16.1" />
       <group targetFramework="net8.0-maccatalyst17.2" />
       <group targetFramework="net7.0-ios16.1" />
@@ -22,6 +20,9 @@
     </dependencies>
   </metadata>
   <files>
+      <file src="sc/Starscream.Net.targets" target="build" />
+      <file src="scios/native/lib/ios/**" target="native/lib/ios" />
+      <file src="scmac/native/lib/mac/**" target="native/lib/mac" />
       <file src="sc/sdk.png" target="images/icon.png" />
       <file src="sc/README.md" target="" />
       <file src="sc/README.txt" target="" />
@@ -29,7 +30,5 @@
 	  <file src="scios/lib/net8.0-ios17.2/**" target="lib/net8.0-ios17.2" />
       <file src="scmac/lib/net7.0-maccatalyst16.1/**" target="lib/net7.0-maccatalyst16.1" />
 	  <file src="scmac/lib/net8.0-maccatalyst17.2/**" target="lib/net8.0-maccatalyst17.2" />
-      <file src="scandroid/lib/net7.0-android33.0/**" target="lib/net7.0-android33.0" />
-	  <file src="scandroid/lib/net8.0-android34.0/**" target="lib/net8.0-android34.0" />
     </files>
 </package>

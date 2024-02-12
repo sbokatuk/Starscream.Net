@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Starscream.Net.iOS</id>
-    <version>4.0.6.1</version>
+    <version>4.0.6.2</version>
     <title>Xamarin bindings to the native Starscream Sockets iOS SDK.</title>
     <authors>s.bokatuk</authors>
     <owners>s.bokatuk</owners>
@@ -20,6 +20,8 @@
     </dependencies>
   </metadata>
   <files>
+      <file src="scios/build/Starscream.Net.iOS.targets" target="build" />
+      <file src="scios/native/lib/ios/**" target="native/lib/ios" />
       <file src="sc/sdk.png" target="images/icon.png" />
       <file src="scios/README.md" target="" />
       <file src="scios/README.txt" target="" />
